@@ -46,16 +46,13 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
     
     
     SerialPort serialPort;
-        /** The port we're normally going to use. */
+    
 	private static final String PORT_NAMES[] = { 
-			"/dev/tty.usbserial-A9007UX1", // Mac OS X
-                        "/dev/ttyACM0", // Raspberry Pi
-			"/dev/ttyUSB0", // Linux
-			"COM4", // Windows
+					"COM4", 
 	};
 
     private BufferedReader input;
-    //private OutputStream output;
+
     private static final int TIME_OUT = 2000;
     private static final int DATA_RATE = 9600;
     
@@ -69,7 +66,7 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
 
     
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+   
     private void initComponents() {
 
         jFileChooser1 = new javax.swing.JFileChooser();
@@ -120,7 +117,7 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 8)); 
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Versión 1.0");
 
@@ -166,14 +163,12 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-      
-        
-        
-          jButton1.setEnabled(false);
+             
+                
+        jButton1.setEnabled(false);
         jButton2.setEnabled(false);
         jButton3.setEnabled(false);
         jComboBox1.setEnabled(true);
@@ -193,10 +188,10 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
          
           
                
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+        
         int i;
         jButton1.setEnabled(true);
         jButton2.setEnabled(false);
@@ -226,14 +221,14 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
                 
                 
                  
-                //create conditional formats
+               
                 SheetConditionalFormatting cond_formato = sheet.getSheetConditionalFormatting();
                 
-                //create rules
+                
                 ConditionalFormattingRule rule = cond_formato.createConditionalFormattingRule(ComparisonOperator.GT,"28");
                 ConditionalFormattingRule rule1 = cond_formato.createConditionalFormattingRule(ComparisonOperator.LT,"18");
                 
-                //change background color
+              
                 
                 PatternFormatting background = rule.createPatternFormatting();
                 background.setFillBackgroundColor(IndexedColors.ORANGE.getIndex());
@@ -261,20 +256,18 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
                 }
                 
         jTextArea1.setText("");
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         serialPort.removeEventListener();
 	serialPort.close();
 	jButton1.setEnabled(false);
         jButton2.setEnabled(false);
         jButton3.setEnabled(true);
         jComboBox1.setEnabled(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {
         Object selectedItem = jComboBox1.getSelectedItem();
 
         String com = selectedItem.toString();
@@ -287,7 +280,7 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
         CommPortIdentifier portId = null;
         Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
 
-		//First, Find an instance of serial port as set in PORT_NAMES.
+		
 		while (portEnum.hasMoreElements()) {
 			CommPortIdentifier currPortId = (CommPortIdentifier) portEnum.nextElement();
 				if (currPortId.getName().equals(com)) {
@@ -302,27 +295,27 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
 		}
 
 		try {
-			// open serial port, and use class name for the appName.
+			
 			serialPort = (SerialPort) portId.open(this.getClass().getName(),
 					TIME_OUT);
 
-			// set port parameters
+			
 			serialPort.setSerialPortParams(DATA_RATE,
 					SerialPort.DATABITS_8,
 					SerialPort.STOPBITS_1,
 					SerialPort.PARITY_NONE);
 
-			// open the streams
+			
 			input = new BufferedReader(new InputStreamReader(serialPort.getInputStream()));
-			//output = serialPort.getOutputStream();
+			
 
-			// add event listeners
+			
 			serialPort.addEventListener(this);
 			serialPort.notifyOnDataAvailable(true);
 		} catch (Exception e) {
 			System.err.println(e.toString());
 		}
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }
 
     public synchronized void close() {
 		if (serialPort != null) {
@@ -331,9 +324,7 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
 		}
 	}
 
-	/**
-	 * Handle an event on the serial port. Read the data and print it.
-	 */
+	
 	public synchronized void serialEvent(SerialPortEvent oEvent) {
             Calendar calendario= Calendar.getInstance();
                 
@@ -350,7 +341,7 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
                                     jTextArea1.setBackground(java.awt.Color.YELLOW);
                                     try
                                     {
-                                        String sonido="C:/Users/PARCIF3/Documents/NetBeansProjects/Registrador_de_Temperatura 2/Ring01.wav";
+                                        String sonido="C:/Users/P/Documents/NetBeansProjects/Registrador_de_Temperatura 2/Ring01.wav";
                                         InputStream in = new FileInputStream (sonido);
                                         AudioStream audio;
                                         audio = new AudioStream (in);
@@ -383,15 +374,11 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
 				System.err.println(e.toString());
 			}
 		}
-		// Ignore all the other eventTypes, but you should consider the other ones.
+		
 	}
 
     public static void main(String args[]) throws Exception {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+       
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -408,21 +395,21 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Arduino.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
+    
         
         
         
-        /* Create and display the form */
+     
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Arduino().setVisible(true);
             }
         });
         
-       //  AWTEvent a =java.awt.EventQueue.getCurrentEvent();
+       
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+   
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -432,5 +419,5 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    // End of variables declaration//GEN-END:variables
+    
 }
