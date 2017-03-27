@@ -69,7 +69,7 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
 
     
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jFileChooser1 = new javax.swing.JFileChooser();
@@ -166,9 +166,9 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
         );
 
         pack();
-    }// </editor-fold>                        
+    }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
       
         
@@ -193,9 +193,9 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
          
           
                
-    }                                        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         int i;
         jButton1.setEnabled(true);
@@ -261,9 +261,9 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
                 }
                 
         jTextArea1.setText("");
-    }                                        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         serialPort.removeEventListener();
 	serialPort.close();
@@ -271,9 +271,9 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
         jButton2.setEnabled(false);
         jButton3.setEnabled(true);
         jComboBox1.setEnabled(false);
-    }                                        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
         Object selectedItem = jComboBox1.getSelectedItem();
 
@@ -322,7 +322,7 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
 		} catch (Exception e) {
 			System.err.println(e.toString());
 		}
-    }                                          
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     public synchronized void close() {
 		if (serialPort != null) {
@@ -422,7 +422,7 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
        //  AWTEvent a =java.awt.EventQueue.getCurrentEvent();
     }
 
-    // Variables declaration - do not modify                     
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -432,5 +432,5 @@ public class Arduino extends javax.swing.JFrame implements SerialPortEventListen
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    // End of variables declaration                   
+    // End of variables declaration//GEN-END:variables
 }
